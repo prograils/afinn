@@ -3,7 +3,8 @@
 LANGUAGE_TO_FILENAME = {
   da: "da.txt",
   en: "en.txt",
-  emoticons: "emoticons.txt"
+  emoticons: "emoticons.txt",
+  emojis: "emojis.txt"
 }.freeze
 
 class Afinn
@@ -41,10 +42,12 @@ class Afinn
     data = read_word_file(full_filename)
 
     if emoticons
-      filename_emoticons = LANGUAGE_TO_FILENAME[:emoticons]
-      full_filename_emoticons = File.join(__dir__, "dictionaries", filename_emoticons)
-      emo = read_word_file(full_filename_emoticons)
-      data = data.merge(emo)
+      [:emoticons, :emojis].each do |emoticon|
+        filename_emoticons = LANGUAGE_TO_FILENAME[emoticon]
+        full_filename_emoticons = File.join(__dir__, "dictionaries", filename_emoticons)
+        emo = read_word_file(full_filename_emoticons)
+        data = data.merge(emo)
+      end
     end
     @word_dict = data
   end

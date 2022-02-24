@@ -3,9 +3,10 @@
 Sentiment analysis in Ruby.
 
 Dictionaries included:
-* 🇬🇧 English Language
-* 🇩🇰 Danish Language
-* Emoticions
+* English Language 🇬🇧
+* Danish Language 🇩🇰
+* Emoticions :) :/ :(
+* Emojis 🤣 🤤 👿
 
 ## Installation
 

@@ -117,6 +117,28 @@ RSpec.describe Afinn do
     expect(score_to_words).to be :positive
   end
 
+  it "creates the correct score for emojis" do
+    afinn = described_class.new(language = :en, emoticons = true)
+
+    text = "🤗"
+    score = afinn.score(text)
+    expect(score).to be > 0
+    score_to_words = afinn.score_to_words(text)
+    expect(score_to_words).to be :positive
+
+    text = "🙄"
+    score = afinn.score(text)
+    expect(score).to be -1.0
+    score_to_words = afinn.score_to_words(text)
+    expect(score_to_words).to be :neutral
+
+    text = "👿"
+    score = afinn.score(text)
+    expect(score).to be < 0
+    score_to_words = afinn.score_to_words(text)
+    expect(score_to_words).to be :negative
+  end
+
   it "creates the correct score for emoticons and words (Danish)" do
     afinn = described_class.new(language = :da, emoticons = true)
 

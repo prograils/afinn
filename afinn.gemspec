@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "afinn"
-  spec.version = "0.1.0"
+  spec.version = "0.1.1"
   spec.authors = ["Jakub Polak"]
   spec.email = ["jpolak@prograils.com"]
 
